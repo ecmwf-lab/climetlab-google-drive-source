@@ -10,7 +10,7 @@ In this README is a description of how to use the source provided by the python 
 
 ## Source description
 
-TODO: write documentation.
+Read a publicly accessible file from google drive as if it was local (i.e. cache the file locally).
 
 ## Using climetlab to access the data
 
@@ -25,17 +25,20 @@ See the [demo notebooks](https://github.com/ecmwf-lab/climetlab-google-drive-sou
 [<img src="https://deepnote.com/buttons/launch-in-deepnote-small.svg">](https://deepnote.com/launch?name=MyProject&url=https://github.com/ecmwf-lab/climetlab-google-drive-source/tree/main/notebooks/demo.ipynb)
 
 
-- TODO.
-
 
 The climetlab python package allows easy access to the data with a few lines of code such as:
 ``` python
 
 !pip install climetlab climetlab-google-drive-source
 import climetlab as cml
-ds = cml.load_source("google-drive", arg1="1", arg2="2")
-ds.to_pandas()
+ds = cml.load_source("google-drive", file_id="...")
+# use ds as you would use cml.load("file", filename)
 ```
+
+Todo
+----
+
+Add authentification support. Perhaps using the package pydrive2?
 
 
 Support and contributing
