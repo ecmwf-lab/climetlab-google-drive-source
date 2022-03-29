@@ -12,7 +12,7 @@ import climetlab as cml
 def test_source():
     ds = cml.load_source(
         "google-drive",
-        file_id = "1PCkX-c1HQCjvmEmGJLyhPqhEGp6oVPiM",
+        file_id="1PCkX-c1HQCjvmEmGJLyhPqhEGp6oVPiM",
     )
     for arr in ds:
         nparr = arr.to_numpy()

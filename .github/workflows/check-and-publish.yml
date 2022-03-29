@@ -114,13 +114,9 @@ jobs:
       run: |
         twine upload --repository testpypi --verbose dist/*
 
-# Uncomment to publish automatically and make it available through pip
-# (PYPI_API_TOKEN must be in the github secret for this space/repos)
-# See github documentation: https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
-#
-#    - name: Publish on pypi.org
-#      env:
-#        TWINE_USERNAME: __token__
-#        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-#      run: |
-#        twine upload dist/* --verbose
+    - name: Publish on pypi.org
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+      run: |
+        twine upload dist/* --verbose

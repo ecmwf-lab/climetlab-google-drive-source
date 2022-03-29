@@ -7,9 +7,9 @@
 # nor does it submit to any jurisdiction.
 import os
 
+import climetlab as cml
 import pandas as pd
 from climetlab import Source
-import climetlab as cml
 
 
 def get_version():
@@ -23,10 +23,11 @@ def get_version():
 
 __version__ = get_version()
 
+
 class GoogleDrive(Source):
     def __init__(self, file_id):
-        url = f'https://drive.google.com/uc?export=download&id={file_id}&confirm=t'
-        self.source = cml.load_source('url', url)
-    
+        url = f"https://drive.google.com/uc?export=download&id={file_id}&confirm=t"
+        self.source = cml.load_source("url", url)
+
     def mutate(self):
         return self.source
