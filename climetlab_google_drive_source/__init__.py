@@ -8,7 +8,6 @@
 import os
 
 import climetlab as cml
-import pandas as pd
 from climetlab import Source
 
 
