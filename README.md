@@ -44,7 +44,7 @@ Add authentification support. Perhaps using the package pydrive2?
 Support and contributing
 ------------------------
 
-Open a issue on github if this is a github repository.
+Open a issue on github or a pull request.
 
 LICENSE
 -------
