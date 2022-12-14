@@ -14,6 +14,12 @@ def test_source():
         "google-drive",
         file_id="1PCkX-c1HQCjvmEmGJLyhPqhEGp6oVPiM",
     )
+    # IFAB pointwise postprocessing
+    # Trying to improve the IFS forecast at station observations.
+    # Observations are sparse in time and space so a local approach is the natural one.
+    # This means the problem is small, suitable for a RF/regression/MLP.
+    # Lots of IFS model fields, so things can be done with interpretability, or holding out key predictors.
+    
     for arr in ds:
         nparr = arr.to_numpy()
         print(nparr)
