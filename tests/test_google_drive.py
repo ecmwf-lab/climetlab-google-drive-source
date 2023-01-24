@@ -8,22 +8,31 @@
 
 import climetlab as cml
 
+from climetlab_google_drive_source import GoogleDrive
+
+
+def test_source_metadata():
+    # This is not necessary for the source to work properly
+    # by is useful to check that the filenames are correct
+
+    source = GoogleDrive(file_id="1PCkX-c1HQCjvmEmGJLyhPqhEGp6oVPiM")
+    meta = source.google_metadata()
+
+    assert isinstance(meta, dict), meta
+    assert meta.get("filename_on_google_drive") == "ML_Crash_Course_final.zip", meta
+
 
 def test_source():
     ds = cml.load_source(
         "google-drive",
         file_id="1PCkX-c1HQCjvmEmGJLyhPqhEGp6oVPiM",
     )
-    # IFAB pointwise postprocessing
-    # Trying to improve the IFS forecast at station observations.
-    # Observations are sparse in time and space so a local approach is the natural one.
-    # This means the problem is small, suitable for a RF/regression/MLP.
-    # Lots of IFS model fields, so things can be done with interpretability, or holding out key predictors.
 
     for arr in ds:
         nparr = arr.to_numpy()
-        print(nparr)
+        assert nparr.shape == (5265488,)
 
 
 if __name__ == "__main__":
+    test_source_metadata()
     test_source()
